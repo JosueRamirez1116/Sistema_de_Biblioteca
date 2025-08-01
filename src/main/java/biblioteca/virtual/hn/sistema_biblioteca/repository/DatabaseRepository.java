@@ -11,7 +11,7 @@ public interface DatabaseRepository {
             "Accept: application/vnd.github.v3.full+json",
             "User-Agent: Retrofit-Sample-App"
     })
-    @GET("/pls/apex/ingenieria_uth/appcine/peliculas")
+    @GET("/pls/apex/ale_rj11/bibliotecauth/libros")
     Call<LibrosResponse> listLibros();
 
     @Headers({

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Libro implements Serializable {
     private int id;
-    private String nombre;
+    private String nombre_libro;
     private String descripcion;
     private String escritor;
     private String genero;
@@ -12,7 +12,7 @@ public class Libro implements Serializable {
 
     public Libro() {
         this.id = 0;
-        this.nombre = "";
+        this.nombre_libro = "";
         this.descripcion = "";
         this.escritor = "";
         this.genero = "";
@@ -27,12 +27,12 @@ public class Libro implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombre_libro() {
+        return nombre_libro;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre_libro(String nombre_libro) {
+        this.nombre_libro = nombre_libro;
     }
 
     public String getDescripcion() {

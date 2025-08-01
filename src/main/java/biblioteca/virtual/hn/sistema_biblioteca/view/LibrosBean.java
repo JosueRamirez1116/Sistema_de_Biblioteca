@@ -1,6 +1,5 @@
 package biblioteca.virtual.hn.sistema_biblioteca.view;
 
-
 import biblioteca.virtual.hn.sistema_biblioteca.controller.LibrosInteractor;
 import biblioteca.virtual.hn.sistema_biblioteca.controller.LibrosInteractorImpl;
 import biblioteca.virtual.hn.sistema_biblioteca.model.Libro;
@@ -110,11 +109,9 @@ public class LibrosBean implements Serializable, LibrosViewModel {
     }
 
 
-
-
     @Override
-    public void mostrarLibrosDataTable(List<Libros> libros) {
-        this.libros = libros;
+    public void mostrarLibrosDataTable(List<Libro> libros) {
+    this.libros = libros;
     }
 
     @Override

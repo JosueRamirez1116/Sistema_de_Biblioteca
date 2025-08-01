@@ -20,7 +20,7 @@
 
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>arya-blue</param-value>
+        <param-value>vela-blue</param-value>
     </context-param>
 
 
