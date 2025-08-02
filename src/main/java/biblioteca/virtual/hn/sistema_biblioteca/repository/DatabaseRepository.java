@@ -18,20 +18,20 @@ public interface DatabaseRepository {
             "Accept: application/vnd.github.v3.full+json",
             "User-Agent: Retrofit-Sample-App"
     })
-    @POST("/pls/apex/ingenieria_uth/appcine/peliculas")
+    @POST("/pls/apex/ale_rj11/bibliotecauth/libros")
     Call<ResponseBody> createLibro(@Body Libro libro);
 
     @Headers({
             "Accept: application/vnd.github.v3.full+json",
             "User-Agent: Retrofit-Sample-App"
     })
-    @PUT("/pls/apex/ingenieria_uth/appcine/peliculas")
+    @PUT("/pls/apex/ale_rj11/bibliotecauth/libros")
     Call<ResponseBody> updateLibro(@Body Libro libro);
 
     @Headers({
             "Accept: application/vnd.github.v3.full+json",
             "User-Agent: Retrofit-Sample-App"
     })
-    @DELETE("/pls/apex/ingenieria_uth/appcine/peliculas")
+    @DELETE("/pls/apex/ale_rj11/bibliotecauth/libros")
     Call<ResponseBody> deleteLibro(@Query("id") int id);
 }
