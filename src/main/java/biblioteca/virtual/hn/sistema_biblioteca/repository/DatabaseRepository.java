@@ -33,5 +33,5 @@ public interface DatabaseRepository {
             "User-Agent: Retrofit-Sample-App"
     })
     @DELETE("/pls/apex/ale_rj11/bibliotecauth/libros")
-    Call<ResponseBody> deleteLibro(@Query("id") int id);
+    Call<ResponseBody> deleteLibro(@Query("id_libro") int id);
 }

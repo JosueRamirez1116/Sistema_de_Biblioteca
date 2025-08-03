@@ -3,7 +3,7 @@ package biblioteca.virtual.hn.sistema_biblioteca.model;
 import java.io.Serializable;
 
 public class Libro implements Serializable {
-    private int id;
+    private int id_libro;
     private String nombre_libro;
     private String descripcion;
     private String escritor;
@@ -11,7 +11,7 @@ public class Libro implements Serializable {
     private String portada;
 
     public Libro() {
-        this.id = 0;
+        this.id_libro = 0;
         this.nombre_libro = "";
         this.descripcion = "";
         this.escritor = "";
@@ -20,11 +20,11 @@ public class Libro implements Serializable {
     }
 
     public int getId() {
-        return id;
+        return id_libro;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id_libro) {
+        this.id_libro = id_libro;
     }
 
     public String getNombre_libro() {
