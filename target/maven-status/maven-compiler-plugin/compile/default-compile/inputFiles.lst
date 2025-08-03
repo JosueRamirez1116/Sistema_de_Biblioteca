@@ -1,9 +1,9 @@
-C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepositoryImpl.java
-C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\Libro.java
-C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepository.java
-C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\LibrosViewModel.java
-C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractorImpl.java
-C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseClient.java
-C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractor.java
-C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\LibrosResponse.java
-C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\LibrosBean.java
+C:\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractorImpl.java
+C:\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseClient.java
+C:\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\Libro.java
+C:\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\LibrosBean.java
+C:\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\LibrosViewModel.java
+C:\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepository.java
+C:\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepositoryImpl.java
+C:\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\LibrosResponse.java
+C:\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractor.java
