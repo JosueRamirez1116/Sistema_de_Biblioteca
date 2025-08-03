@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+    <h:head>
+        <title>Biblioteca Digital</title>
+    </h:head>
+    <h:body>
+        <div class="card crud-demo">
+            <h:form id="form">
+                <p:growl id="messages" showDetail="true" />
+
+                <p:toolbar>
+                    <p:toolbarGroup>
+                        <p:commandButton value="Crear" icon="pi pi-plus" actionListener="#{LibrosBean.openNew}"
+                                         update=":dialogs:manage-libro-content" oncomplete="PF('manageLibroDialog').show()"
+                                         styleClass="ui-button-success" style="margin-right: .5rem">
+                            <p:resetInput target=":dialogs:manage-libro-content" />
+                        </p:commandButton>
+                        <p:commandButton id="delete-button" value="#{LibrosBean.deleteButtonMessage}"
+                                         icon="pi pi-trash" actionListener="#{LibrosBean.eliminarLibros}"
+                                         styleClass="ui-button-danger" disabled="#{!LibrosBean.hasSelectedLibro()}" update="@this">
+                            <p:confirm header="Confirmación" message="¿Deseas eliminar los libros seleccionadas?"
+                                       icon="pi pi-exclamation-triangle" />
+                        </p:commandButton>
+                        <p:commandButton value="Crear Usuario" icon="pi pi-user-plus"
+                                         action="crearusuario?faces-redirect=true"
+                                         styleClass="ui-button custom-blue-button" style="margin-right: .5rem; margin-left: 1rem"
+                                         update="@none" />
+                    </p:toolbarGroup>
+                </p:toolbar>
+
+                <p:dataTable id="dt-Libros" widgetVar="dtLibros" var="libro" value="#{LibrosBean.libros}"
+                             reflow="true" styleClass="libros-table" selectionMode="multiple" selection="#{LibrosBean.selectedLibros}"
+                             rowKey="#{libro.id}" paginator="true" rows="10" selectionRowMode="add" paginatorPosition="bottom">
+
+                    <f:facet name="header">
+                        <div class="libros-table-header">
+                            <span style="font-weight: bold">Libro</span>
+                            <span class="filter-container ui-input-icon-left"> <i class="pi pi-search"></i>
+                        <p:inputText id="globalFilter" onkeyup="PrimeFaces.debounce(() => PF('dtLibros').filter())" placeholder="Buscar" />
+                    </span>
+                        </div>
+                    </f:facet>
+
+                    <p:ajax event="rowSelect" update=":form:delete-button" />
+                    <p:ajax event="rowUnselect" update=":form:delete-button" />
+                    <p:ajax event="rowSelectCheckbox" update=":form:delete-button" />
+                    <p:ajax event="rowUnselectCheckbox" update=":form:delete-button" />
+                    <p:ajax event="toggleSelect" update=":form:delete-button" />
+
+                    <p:column selectionBox="true" exportable="false"></p:column>
+
+                    <p:column headerText="Nombre" sortBy="#{libro.nombre_libro}" filterBy="#{libro.nombre_libro}" filterMatchMode="contains">
+                        <h:outputText value="#{libro.nombre_libro}" />
+                    </p:column>
+                    <p:column headerText="Descripcion" sortBy="#{libro.descripcion}" filterBy="#{libro.descripcion}" filterMatchMode="contains">
+                        <h:outputText value="#{libro.descripcion}" />
+                    </p:column>
+                    <p:column headerText="Escritor" sortBy="#{libro.escritor}" filterBy="#{libro.escritor}" filterMatchMode="contains">
+                        <h:outputText value="#{libro.escritor}" />
+                    </p:column>
+                    <p:column headerText="Genero" sortBy="#{libro.genero}" filterMatchMode="contains" filterBy="#{libro.genero}">
+                        <h:outputText value="#{libro.genero}" />
+                    </p:column>
+                    <p:column headerText="Portada" exportable="false">
+                        <img src="#{libro.portada}" alt="portada" height="90px" class="libro-image"/>
+                    </p:column>
+
+
+                    <p:column exportable="false" ariaHeaderText="Actions">
+                        <p:commandButton icon="pi pi-pencil" update=":dialogs:manage-libro-content"
+                                         oncomplete="PF('manageLibroDialog').show()"
+                                         styleClass="edit-button rounded-button ui-button-success" process="@this">
+                            <f:setPropertyActionListener value="#{libro}" target="#{LibrosBean.selectedLibro}" />
+                            <p:resetInput target=":dialogs:manage-libro-content" />
+                        </p:commandButton>
+                        <p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash"
+                                         process="@this"
+                                         oncomplete="PF('deleteLibroDialog').show()">
+                            <f:setPropertyActionListener value="#{libro}" target="#{LibrosBean.selectedLibro}" />
+                        </p:commandButton>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+
+
+
+
+
+            <h:form id="dialogs" style="width: 60%">
+                <p:dialog header="Libro Details" showEffect="fade" modal="true" widgetVar="manageLibroDialog"
+                          responsive="true">
+                    <p:outputPanel id="manage-libro-content" class="ui-fluid">
+                        <p:outputPanel rendered="#{not empty LibrosBean.selectedLibro}">
+                            <p:graphicImage name="images/product/#{LibrosBean.selectedLibro.portada}" library="demo"
+                                            styleClass="libro-image" rendered="#{not empty LibrosBean.selectedLibro.portada}" />
+
+                            <div class="field">
+                                <p:outputLabel for="name">Nombre</p:outputLabel>
+                                <p:inputText id="name" value="#{LibrosBean.selectedLibro.nombre_libro}" required="true" />
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="description">Descripcion</p:outputLabel>
+                                <p:inputTextarea id="description" value="#{LibrosBean.selectedLibro.descripcion}" />
+                            </div>
+                            <div class="formgrid grid">
+                                <div class="field col">
+                                    <p:outputLabel for="escritor">Escritor</p:outputLabel>
+                                    <p:inputText id="escritor" value="#{LibrosBean.selectedLibro.escritor}" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="genero">Genero</p:outputLabel>
+                                <p:selectOneRadio id="genero" value="#{LibrosBean.selectedLibro.genero}"
+                                                  layout="responsive" columns="2">
+                                    <f:selectItem itemLabel="Terror" itemValue="terror" />
+                                    <f:selectItem itemLabel="Thriller" itemValue="thriller" />
+                                    <f:selectItem itemLabel="Historia" itemValue="historia" />
+                                    <f:selectItem itemLabel="Romantico" itemValue="romantico" />
+                                    <f:selectItem itemLabel="Distopia" itemValue="distopia" />
+                                    <f:selectItem itemLabel="Fantasía" itemValue="fantasia" />
+                                    <f:selectItem itemLabel="Comedia" itemValue="comedia" />
+                                    <f:selectItem itemLabel="Acción" itemValue="accion" />
+                                    <f:selectItem itemLabel="Aventura" itemValue="aventura" />
+                                    <f:selectItem itemLabel="Autoayuda" itemValue="autoayuda" />
+                                    <f:selectItem itemLabel="Cocina" itemValue="cocina" />
+                                    <f:selectItem itemLabel="Poesia" itemValue="poesia" />
+                                    <f:selectItem itemLabel="Biografias" itemValue="biografias" />
+                                    <f:selectItem itemLabel="Didacticos" itemValue="didactico" />
+                                    <f:selectItem itemLabel="Ciencia Ficción" itemValue="si-fi" />
+                                </p:selectOneRadio>
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="portada">Imagen</p:outputLabel>
+                                <p:inputText id="portada" value="#{LibrosBean.selectedLibro.portada}" required="true" />
+                            </div>
+                        </p:outputPanel>
+                    </p:outputPanel>
+
+
+
+
+                    <f:facet name="footer">
+                        <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{LibrosBean.guardarLibro}"
+                                         update="manage-libro-content :form:dt-libros" process="manage-libro-content @this"
+                                         oncomplete="PF('manageLibroDialog').hide()" />
+                        <p:commandButton value="Cancelar" icon="pi pi-times" onclick="PF('manageLibroDialog').hide()"
+                                         class="ui-button-secondary" type="button" />
+                    </f:facet>
+                </p:dialog>
+
+                <p:confirmDialog widgetVar="deleteLibroDialog" showEffect="fade" width="300"
+                                 message="¿Eliminar el libro?" header="Confirmar" severity="warn">
+                    <p:commandButton value="Si" icon="pi pi-check" actionListener="#{LibrosBean.eliminarLibro}"
+                                     process="@this" update=":form:delete-button :form:dt-libros"
+                                     oncomplete="PF('deleteLibroDialog').hide()" />
+                    <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
+                                     onclick="PF('deleteLibroDialog').hide()" />
+                </p:confirmDialog>
+
+                <p:confirmDialog global="true" showEffect="fade" width="300">
+                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
+                                     icon="pi pi-times" />
+                </p:confirmDialog>
+            </h:form>
+        </div>
+
+    </h:body>
+
+
+</f:view>
+</html>
