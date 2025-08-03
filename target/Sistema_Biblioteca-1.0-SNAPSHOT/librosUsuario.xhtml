@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+    <h:head>
+        <title>Biblioteca - Usuario</title>
+    </h:head>
+    <h:body>
+        <h:form id="formUsuario">
+            <p:growl id="mensajes" showDetail="true" />
+
+            <p:dataTable id="tablaLibros" value="#{UsuarioBean.librosDisponibles}" var="libro" paginator="true" rows="10"
+                         responsiveLayout="scroll" rowKey="#{libro.id}">
+                <f:facet name="header">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold;">Libros disponibles</span>
+                        <p:inputText id="globalFilter" onkeyup="PF('tabla').filter()" placeholder="Buscar..." />
+                    </div>
+                </f:facet>
+
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{libro.nombre_libro}" />
+                </p:column>
+
+                <p:column headerText="Escritor">
+                    <h:outputText value="#{libro.escritor}" />
+                </p:column>
+
+                <p:column headerText="Género">
+                    <h:outputText value="#{libro.genero}" />
+                </p:column>
+
+                <p:column headerText="Portada">
+                    <img src="#{libro.portada}" alt="Portada" style="height: 90px;" />
+                </p:column>
+
+                <p:column headerText="Acciones">
+                    <p:commandButton value="Prestar" icon="pi pi-book"
+                                     actionListener="#{UsuarioBean.prestarLibro(libro)}"
+                                     update="tablaLibros mensajes"
+                                     rendered="#{!libro.prestado}" styleClass="ui-button-success" />
+
+                    <p:commandButton value="Devolver" icon="pi pi-reply"
+                                     actionListener="#{UsuarioBean.devolverLibro(libro)}"
+                                     update="tablaLibros mensajes"
+                                     rendered="#{libro.prestado}" styleClass="ui-button-warning" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</f:view>
+</html>
+
