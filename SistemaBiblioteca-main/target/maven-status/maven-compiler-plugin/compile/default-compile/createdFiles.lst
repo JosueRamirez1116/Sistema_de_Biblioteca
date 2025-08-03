@@ -1,0 +1,9 @@
+biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepositoryImpl.class
+biblioteca\virtual\hn\sistema_biblioteca\model\Libro.class
+biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepository.class
+biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractor.class
+biblioteca\virtual\hn\sistema_biblioteca\model\LibrosResponse.class
+biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractorImpl.class
+biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseClient.class
+biblioteca\virtual\hn\sistema_biblioteca\view\LibrosBean.class
+biblioteca\virtual\hn\sistema_biblioteca\view\LibrosViewModel.class
