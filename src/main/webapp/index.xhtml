@@ -27,6 +27,14 @@
                             <p:confirm header="Confirmación" message="¿Deseas eliminar los libros seleccionadas?"
                                        icon="pi pi-exclamation-triangle" />
                         </p:commandButton>
+                        <p:commandButton value="Crear Usuario" icon="pi pi-user-plus"
+                                         action="crearusuario?faces-redirect=true"
+                                         styleClass="ui-button custom-blue-button" style="margin-right: .5rem; margin-left: 1rem"
+                                         update="@none" />
+                        <p:commandButton value="Cerrar Sesión" icon="pi pi-sign-out"
+                                         action="login?faces-redirect=true" styleClass="ui-button-secondary"
+                                         style="margin-right: .5rem; margin-left: 1rem" update="@none"
+                                         immediate="true" />
                     </p:toolbarGroup>
                 </p:toolbar>
 
