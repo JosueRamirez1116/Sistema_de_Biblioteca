@@ -3,14 +3,20 @@ package biblioteca.virtual.hn.sistema_biblioteca.view;
 import biblioteca.virtual.hn.sistema_biblioteca.controller.LibrosInteractor;
 import biblioteca.virtual.hn.sistema_biblioteca.controller.LibrosInteractorImpl;
 import biblioteca.virtual.hn.sistema_biblioteca.model.Libro;
+import jakarta.annotation.PostConstruct;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import org.primefaces.PrimeFaces;
+import org.primefaces.model.ResponsiveOption;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Named("LibrosBean")
 @ViewScoped
@@ -19,6 +25,7 @@ public class LibrosBean implements Serializable, LibrosViewModel {
     private List<Libro> selectedLibros;
     private Libro selectedLibro;
     private LibrosInteractor controller;
+    private List<ResponsiveOption> responsiveOptions;
 
     public LibrosBean(){
         this.libros = new ArrayList<>();
@@ -27,10 +34,6 @@ public class LibrosBean implements Serializable, LibrosViewModel {
         controller = new LibrosInteractorImpl(this);
         controller.consultarLibros();
     }
-
-
-
-
 
 
 
@@ -80,10 +83,6 @@ public class LibrosBean implements Serializable, LibrosViewModel {
 
 
 
-
-
-
-
     public List<Libro> getLibros() {
         return libros;
     }
@@ -127,6 +126,172 @@ public class LibrosBean implements Serializable, LibrosViewModel {
     @Override
     public void mostrarMensajeError(String mensaje) {
         mostrarMensaje(mensaje, FacesMessage.SEVERITY_ERROR);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Carrusel de Catalogo de Libros
+
+
+    // Contadores por categoría
+    private int cantidadClasicos;
+    private int cantidadSatira;
+    private int cantidadCienciaFiccion;
+    private int cantidadNovela;
+    private int cantidadFantasia;
+    private int cantidadRealismoMagico;
+    private int cantidadFiccion;
+    private int cantidadTerror;
+    private int cantidadEpica;
+    private int cantidadFilosofia;
+    private int cantidadAventura;
+
+    // Métodos por categoría
+    public List<Libro> getLibrosClasico() {
+        List<Libro> clasicos = libros.stream()
+                .filter(libro -> "Clásico".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadClasicos = clasicos.size();
+        return clasicos;
+    }
+
+    public int getCantidadClasicos() {
+        return cantidadClasicos;
+    }
+
+    public List<Libro> getLibrosSatira() {
+        List<Libro> satira = libros.stream()
+                .filter(libro -> "Sátira".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadSatira = satira.size();
+        return satira;
+    }
+
+    public int getCantidadSatira() {
+        return cantidadSatira;
+    }
+
+    public List<Libro> getLibrosCienciaFiccion() {
+        List<Libro> cienciaFiccion = libros.stream()
+                .filter(libro -> "Ciencia Ficción".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadCienciaFiccion = cienciaFiccion.size();
+        return cienciaFiccion;
+    }
+
+    public int getCantidadCienciaFiccion() {
+        return cantidadCienciaFiccion;
+    }
+
+    public List<Libro> getLibrosNovela() {
+        List<Libro> novela = libros.stream()
+                .filter(libro -> "Novela".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadNovela = novela.size();
+        return novela;
+    }
+
+    public int getCantidadNovela() {
+        return cantidadNovela;
+    }
+
+    public List<Libro> getLibrosFantasia() {
+        List<Libro> fantasia = libros.stream()
+                .filter(libro -> "Fantasía".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadFantasia = fantasia.size();
+        return fantasia;
+    }
+
+    public int getCantidadFantasia() {
+        return cantidadFantasia;
+    }
+
+    public List<Libro> getLibrosRealismoMagico() {
+        List<Libro> realismoMagico = libros.stream()
+                .filter(libro -> "Realismo mágico".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadRealismoMagico = realismoMagico.size();
+        return realismoMagico;
+    }
+
+    public int getCantidadRealismoMagico() {
+        return cantidadRealismoMagico;
+    }
+
+    public List<Libro> getLibrosFiccion() {
+        List<Libro> ficcion = libros.stream()
+                .filter(libro -> "Ficción".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadFiccion = ficcion.size();
+        return ficcion;
+    }
+
+    public int getCantidadFiccion() {
+        return cantidadFiccion;
+    }
+
+    public List<Libro> getLibrosTerror() {
+        List<Libro> terror = libros.stream()
+                .filter(libro -> "Terror".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadTerror = terror.size();
+        return terror;
+    }
+
+    public int getCantidadTerror() {
+        return cantidadTerror;
+    }
+
+    public List<Libro> getLibrosEpica() {
+        List<Libro> epica = libros.stream()
+                .filter(libro -> "Épica".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadEpica = epica.size();
+        return epica;
+    }
+
+    public int getCantidadEpica() {
+        return cantidadEpica;
+    }
+
+    public List<Libro> getLibrosFilosofia() {
+        List<Libro> filosofia = libros.stream()
+                .filter(libro -> "Filosofía".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadFilosofia = filosofia.size();
+        return filosofia;
+    }
+
+    public int getCantidadFilosofia() {
+        return cantidadFilosofia;
+    }
+
+    public List<Libro> getLibrosAventura() {
+        List<Libro> aventura = libros.stream()
+                .filter(libro -> "Aventura".equals(libro.getGenero()))
+                .collect(Collectors.toList());
+        cantidadAventura = aventura.size();
+        return aventura;
+    }
+
+    public int getCantidadAventura() {
+        return cantidadAventura;
     }
 
 }

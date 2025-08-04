@@ -3,52 +3,197 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+
+
 <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
     <h:head>
         <title>Biblioteca - Usuario</title>
+
+        <style>
+            .libros-item .libros-item-content {
+                border: 1px solid var(--surface-d);
+                border-radius: 3px;
+                margin: .3rem;
+                text-align: center;
+                padding: 2rem 0;
+            }
+
+            .libros-item .libros-image {
+                width: 50%;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+            }
+        </style>
     </h:head>
     <h:body>
-        <h:form id="formUsuario">
-            <p:growl id="mensajes" showDetail="true" />
 
-            <p:dataTable id="tablaLibros" value="#{UsuarioBean.librosDisponibles}" var="libro" paginator="true" rows="10"
-                         responsiveLayout="scroll" rowKey="#{libro.id}">
-                <f:facet name="header">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-weight: bold;">Libros disponibles</span>
-                        <p:inputText id="globalFilter" onkeyup="PF('tabla').filter()" placeholder="Buscar..." />
+
+        <h:form id="form">
+
+
+            <div class="card">
+
+                <h2>Aventura</h2>
+                <p:carousel value="#{LibrosBean.librosAventura}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadAventura lt 6 ? LibrosBean.cantidadAventura : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
                     </div>
-                </f:facet>
+                </p:carousel>
 
-                <p:column headerText="Nombre">
-                    <h:outputText value="#{libro.nombre_libro}" />
-                </p:column>
 
-                <p:column headerText="Escritor">
-                    <h:outputText value="#{libro.escritor}" />
-                </p:column>
+                <h2>Ciencia Ficcion</h2>
+                <p:carousel value="#{LibrosBean.librosCienciaFiccion}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadCienciaFiccion lt 6 ? LibrosBean.cantidadCienciaFiccion : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
 
-                <p:column headerText="Género">
-                    <h:outputText value="#{libro.genero}" />
-                </p:column>
 
-                <p:column headerText="Portada">
-                    <img src="#{libro.portada}" alt="Portada" style="height: 90px;" />
-                </p:column>
 
-                <p:column headerText="Acciones">
-                    <p:commandButton value="Prestar" icon="pi pi-book"
-                                     actionListener="#{UsuarioBean.prestarLibro(libro)}"
-                                     update="tablaLibros mensajes"
-                                     rendered="#{!libro.prestado}" styleClass="ui-button-success" />
+                <h2>Clásico</h2>
+                <p:carousel value="#{LibrosBean.librosClasico}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadClasicos lt 6 ? LibrosBean.cantidadClasicos : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
 
-                    <p:commandButton value="Devolver" icon="pi pi-reply"
-                                     actionListener="#{UsuarioBean.devolverLibro(libro)}"
-                                     update="tablaLibros mensajes"
-                                     rendered="#{libro.prestado}" styleClass="ui-button-warning" />
-                </p:column>
-            </p:dataTable>
+
+
+                <h2>Épica</h2>
+                <p:carousel value="#{LibrosBean.librosEpica}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadEpica lt 6 ? LibrosBean.cantidadEpica : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
+
+
+
+                <h2>Fantasía</h2>
+                <p:carousel value="#{LibrosBean.librosFantasia}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadFantasia lt 6 ? LibrosBean.cantidadFantasia : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
+
+
+
+                <h2>Ficción</h2>
+                <p:carousel value="#{LibrosBean.librosFiccion}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadFiccion lt 6 ? LibrosBean.cantidadFiccion : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
+
+
+
+                <h2>Filosofía</h2>
+                <p:carousel value="#{LibrosBean.librosFilosofia}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadFilosofia lt 6 ? LibrosBean.cantidadFilosofia : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
+
+
+
+                <h2>Novela</h2>
+                <p:carousel value="#{LibrosBean.librosNovela}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadNovela lt 6 ? LibrosBean.cantidadNovela : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
+
+
+
+                <h2>Realismo Mágico</h2>
+                <p:carousel value="#{LibrosBean.librosRealismoMagico}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadRealismoMagico lt 6 ? LibrosBean.cantidadRealismoMagico : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
+
+
+                <h2>Sátira</h2>
+                <p:carousel value="#{LibrosBean.librosSatira}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadSatira lt 6 ? LibrosBean.cantidadSatira : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
+
+
+
+                <h2>Terror</h2>
+                <p:carousel value="#{LibrosBean.librosTerror}" var="libros" circular="true"
+                            autoplayInterval="4500" numVisible="#{LibrosBean.cantidadTerror lt 6 ? LibrosBean.cantidadTerror : 6}" numScroll="1">
+                    <div class="libros-item">
+                        <div class="libros-item-content">
+                            <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
+                            <h3>#{libros.nombre_libro}</h3>
+                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                        </div>
+                    </div>
+                </p:carousel>
+
+
+
+
+            </div>
+
+
+
+
+
         </h:form>
+
+
     </h:body>
 </f:view>
 </html>
