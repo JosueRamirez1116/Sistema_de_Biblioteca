@@ -4,11 +4,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-
 <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
     <h:head>
         <title>Biblioteca - Usuario</title>
-
         <style>
             .libros-item .libros-item-content {
                 border: 1px solid var(--surface-d);
@@ -22,16 +20,43 @@
                 width: 50%;
                 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
             }
+
+            .ui-menubar {
+                background-color: #f8f9fa;
+                border: none;
+                padding: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .ui-menubar .ui-menuitem {
+                margin-right: 1rem;
+            }
+
+            .ui-menubar .ui-menuitem-text {
+                font-weight: 500;
+            }
+
+            .right-menu-item {
+                float: right;
+                margin-left: 1rem;
+            }
         </style>
     </h:head>
     <h:body>
-
+        <p:menubar>
+            <p:menuitem value="Biblioteca Virtual" icon="pi pi-home" action="/librosUsuario?faces-redirect=true" styleClass="ui-button-flat" />
+            <p:menuitem value="Mis Libros" icon="pi pi-book" action="/loginusuario?faces-redirect=true" rendered="#{loginBean.usuario == null}" />
+            <p:menuitem value="Mis Libros" icon="pi pi-book" action="/misLibros?faces-redirect=true" rendered="#{loginBean.usuario != null}" />
+            <p:menuitem value="Administrador" icon="pi pi-sign-in" action="/loginadmin?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
+            <p:menuitem value="Acceder" icon="pi pi-sign-in" action="/loginusuario?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
+            <p:menuitem value="Registrarse" icon="pi pi-user-plus" action="/crearusuario?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
+            <p:menuitem value="Cerrar Sesión" icon="pi pi-sign-out" action="#{loginBean.logout}" rendered="#{loginBean.usuario != null}" styleClass="ui-button-outlined right-menu-item" />
+        </p:menubar>
 
         <h:form id="form">
-
-
             <div class="card">
-
                 <h2>Aventura</h2>
                 <p:carousel value="#{LibrosBean.librosAventura}" var="libros" circular="true"
                             autoplayInterval="4500" numVisible="#{LibrosBean.cantidadAventura lt 6 ? LibrosBean.cantidadAventura : 6}" numScroll="1">
@@ -39,25 +64,22 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
 
-
-                <h2>Ciencia Ficcion</h2>
+                <h2>Ciencia Ficción</h2>
                 <p:carousel value="#{LibrosBean.librosCienciaFiccion}" var="libros" circular="true"
                             autoplayInterval="4500" numVisible="#{LibrosBean.cantidadCienciaFiccion lt 6 ? LibrosBean.cantidadCienciaFiccion : 6}" numScroll="1">
                     <div class="libros-item">
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
-
 
                 <h2>Clásico</h2>
                 <p:carousel value="#{LibrosBean.librosClasico}" var="libros" circular="true"
@@ -66,12 +88,10 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
-
 
                 <h2>Épica</h2>
                 <p:carousel value="#{LibrosBean.librosEpica}" var="libros" circular="true"
@@ -80,12 +100,10 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
-
 
                 <h2>Fantasía</h2>
                 <p:carousel value="#{LibrosBean.librosFantasia}" var="libros" circular="true"
@@ -94,12 +112,10 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
-
 
                 <h2>Ficción</h2>
                 <p:carousel value="#{LibrosBean.librosFiccion}" var="libros" circular="true"
@@ -108,12 +124,10 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
-
 
                 <h2>Filosofía</h2>
                 <p:carousel value="#{LibrosBean.librosFilosofia}" var="libros" circular="true"
@@ -122,12 +136,10 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
-
 
                 <h2>Novela</h2>
                 <p:carousel value="#{LibrosBean.librosNovela}" var="libros" circular="true"
@@ -136,12 +148,10 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
-
 
                 <h2>Realismo Mágico</h2>
                 <p:carousel value="#{LibrosBean.librosRealismoMagico}" var="libros" circular="true"
@@ -150,11 +160,10 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
 
                 <h2>Sátira</h2>
                 <p:carousel value="#{LibrosBean.librosSatira}" var="libros" circular="true"
@@ -163,12 +172,10 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
-
 
                 <h2>Terror</h2>
                 <p:carousel value="#{LibrosBean.librosTerror}" var="libros" circular="true"
@@ -177,24 +184,12 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton type="button" icon="pi pi-book" value="Prestar libro" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
                         </div>
                     </div>
                 </p:carousel>
-
-
-
-
             </div>
-
-
-
-
-
         </h:form>
-
-
     </h:body>
 </f:view>
 </html>
-

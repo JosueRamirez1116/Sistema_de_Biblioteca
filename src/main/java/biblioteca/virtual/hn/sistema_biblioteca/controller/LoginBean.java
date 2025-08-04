@@ -7,6 +7,7 @@ import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 
+
 import java.io.Serializable;
 
 @Named
@@ -54,6 +55,7 @@ public class LoginBean implements Serializable {
             return null;
         }
     }
+
 
     public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
