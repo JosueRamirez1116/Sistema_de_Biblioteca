@@ -53,7 +53,7 @@ public interface DatabaseRepository {
     })
     @GET("/pls/apex/ale_rj11/bibliotecauth/prestamos")
     Call<PrestamoResponse> listPrestamo();
-    
+
 }
 
 
