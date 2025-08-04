@@ -2,6 +2,8 @@ package biblioteca.virtual.hn.sistema_biblioteca.repository;
 
 import biblioteca.virtual.hn.sistema_biblioteca.model.Libro;
 import biblioteca.virtual.hn.sistema_biblioteca.model.LibrosResponse;
+import biblioteca.virtual.hn.sistema_biblioteca.model.Prestamo;
+import biblioteca.virtual.hn.sistema_biblioteca.model.PrestamoResponse;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -57,5 +59,24 @@ public class DatabaseRepositoryImpl {
     }
 
 
-
+//PRESTAMOS
+public boolean crearPrestamo(Prestamo nuevo) throws IOException {
+    Call<ResponseBody> call = client.getInstance().createPrestamo(nuevo);
+    Response<ResponseBody> response = call.execute();//EJECUTA EL LLAMADO A LA BASE DE DATOS
+    return response.isSuccessful();
+}
+    public PrestamoResponse consultarPrestamo() throws IOException {
+        Call<PrestamoResponse> call = client.getInstance().listPrestamo();
+        Response<PrestamoResponse> response = call.execute();//EJECUTA EL LLAMADO A LA BASE DE DATOS
+        if(response.isSuccessful()){//CODIGO (STATUS CODE HTTP 200)
+            return response.body();
+        }else{
+            return null;
+        }
+    }
+    public boolean actualizarPrestamo(Prestamo existente) throws IOException {
+        Call<ResponseBody> call = client.getInstance().updatePrestamo(existente);
+        Response<ResponseBody> response = call.execute();//EJECUTA EL LLAMADO A LA BASE DE DATOS
+        return response.isSuccessful();
+    }
 }

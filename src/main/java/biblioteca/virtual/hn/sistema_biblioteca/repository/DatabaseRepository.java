@@ -2,6 +2,8 @@ package biblioteca.virtual.hn.sistema_biblioteca.repository;
 
 import biblioteca.virtual.hn.sistema_biblioteca.model.Libro;
 import biblioteca.virtual.hn.sistema_biblioteca.model.LibrosResponse;
+import biblioteca.virtual.hn.sistema_biblioteca.model.Prestamo;
+import biblioteca.virtual.hn.sistema_biblioteca.model.PrestamoResponse;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -34,4 +36,24 @@ public interface DatabaseRepository {
     })
     @DELETE("/pls/apex/ale_rj11/bibliotecauth/libros")
     Call<ResponseBody> deleteLibro(@Query("id_libro") int id);
+
+
+
+    //PRESTAMOS
+    @Headers({
+            "Accept: application/vnd.github.v3.full+json",
+            "User-Agent: Retrofit-Sample-App"
+    })
+    @POST("/pls/apex/ale_rj11/bibliotecauth/prestamos")
+    Call<ResponseBody> createPrestamo(@Body Prestamo prestamo);
+
+    @Headers({
+            "Accept: application/vnd.github.v3.full+json",
+            "User-Agent: Retrofit-Sample-App"
+    })
+    @GET("/pls/apex/ale_rj11/bibliotecauth/prestamos")
+    Call<PrestamoResponse> listPrestamo();
+    
 }
+
+

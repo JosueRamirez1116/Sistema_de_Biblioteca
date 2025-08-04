@@ -99,6 +99,7 @@ public class LibrosBean implements Serializable, LibrosViewModel {
         this.selectedLibro = selectedLibro;
     }
 
+
     public List<Libro> getSelectedLibros() {
         return selectedLibros;
     }
@@ -294,4 +295,10 @@ public class LibrosBean implements Serializable, LibrosViewModel {
         return cantidadAventura;
     }
 
+
+    //prestamos
+
 }
+
+
+
