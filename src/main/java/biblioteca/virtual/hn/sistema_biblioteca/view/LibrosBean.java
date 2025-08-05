@@ -60,6 +60,7 @@ public class LibrosBean implements Serializable, LibrosViewModel {
         }else{
             controller.actualizarLibro(this.selectedLibro);
         }
+
     }
 
 
@@ -68,12 +69,14 @@ public class LibrosBean implements Serializable, LibrosViewModel {
         this.libros.remove(this.selectedLibro);
         this.controller.eliminarLibro(this.selectedLibro.getId());
         this.selectedLibro = null;
+
     }
 
     public void eliminarLibros() {
         this.libros.removeAll(this.selectedLibros);
         this.controller.eliminarLibros(this.selectedLibros.stream().mapToInt(Libro::getId).toArray());
         this.selectedLibros = null;
+
     }
 
     private void mostrarMensaje(String mensaje, FacesMessage.Severity tipo) {
@@ -117,6 +120,7 @@ public class LibrosBean implements Serializable, LibrosViewModel {
     @Override
     public void refrescarPantalla() {
         controller.consultarLibros();
+        PrimeFaces.current().executeScript("window.location.reload()");
     }
 
     @Override

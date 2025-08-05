@@ -47,9 +47,8 @@
     <h:body>
         <p:menubar>
             <p:menuitem value="Biblioteca Virtual" icon="pi pi-home" action="/librosUsuario?faces-redirect=true" styleClass="ui-button-flat" />
-            <p:menuitem value="Mis Libros" icon="pi pi-book" action="/loginusuario?faces-redirect=true" rendered="#{loginBean.usuario == null}" />
-            <p:menuitem value="Mis Libros" icon="pi pi-book" action="/misLibros?faces-redirect=true" rendered="#{loginBean.usuario != null}" />
-            <p:menuitem value="Administrador" icon="pi pi-sign-in" action="/loginadmin?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
+            <p:menuitem value="Mis Libros" icon="pi pi-book" action="/loginusuario?faces-redirect=true" rendered="" />
+            <p:menuitem value="Administrador" icon="pi pi-sign-in" action="/index?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
             <p:menuitem value="Acceder" icon="pi pi-sign-in" action="/loginusuario?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
             <p:menuitem value="Registrarse" icon="pi pi-user-plus" action="/crearusuario?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
             <p:menuitem value="Cerrar Sesión" icon="pi pi-sign-out" action="#{loginBean.logout}" rendered="#{loginBean.usuario != null}" styleClass="ui-button-outlined right-menu-item" />
@@ -64,7 +63,7 @@
                         <div class="libros-item-content">
                             <img src="#{libros.portada}" alt="portada" class="libro-image" height="250px"/>
                             <h3>#{libros.nombre_libro}</h3>
-                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />
+                            <p:commandButton icon="pi pi-book" value="Prestar libro" action="/loginusuario?faces-redirect=true" styleClass="rounded-button mr-3" />-->
                         </div>
                     </div>
                 </p:carousel>
@@ -188,8 +187,13 @@
                         </div>
                     </div>
                 </p:carousel>
+
             </div>
+
         </h:form>
+
+
+
     </h:body>
 </f:view>
 </html>

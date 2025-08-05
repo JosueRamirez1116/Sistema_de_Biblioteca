@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+    <h:outputLabel value="Hello, world"/>
+</f:view>
+
+<h:body styleClass="p-3">
+    <p:panel styleClass="ui-panel-shadow" style="max-width: 1200px; margin: 0 auto;">
+        <h:form>
+
+            <p:panel header="Nueva Reservación" styleClass="ui-panel-shadow" style="margin-top: 20px;">
+                <p:panelGrid columns="4" layout="flex" id="form-grid">
+                    <p:outputLabel value="Fin Reserva" for="ffin"/>
+                    <p:datePicker id="ffin" value="#{ReservacionesBean.reserva.ffin}"
+                                  mindate="#{ReservacionesBean.minEndDateTime}"
+                                  showButtonBar="true"
+                                  styleClass="ui-inputfield ui-corner-all transition-all"
+                                  validatorMessage="Seleccione una fecha posterior a la fecha de inicio +1h"/>
+
+                    <p:commandButton value="Reservar" update="mensaje,form-grid" process="@all"
+                                     action="#{ReservacionesBean.reservar}"
+                                     styleClass="ui-button-raised ui-button-success ui-corner-all transition-all"/>
+                </p:panelGrid>
+            </p:panel>
+        </h:form>
+    </p:panel>
+</h:body>
+</html>

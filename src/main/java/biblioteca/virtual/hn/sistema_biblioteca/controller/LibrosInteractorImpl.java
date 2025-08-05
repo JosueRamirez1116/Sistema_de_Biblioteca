@@ -23,6 +23,7 @@ public class LibrosInteractorImpl implements  LibrosInteractor {
                 this.vista.mostrarMensajeError("No se encontraron libros");
             }else{
                 this.vista.mostrarLibrosDataTable(response.getItems());
+
             }
         }catch(Exception error){
             error.printStackTrace();

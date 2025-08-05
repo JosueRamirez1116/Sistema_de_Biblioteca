@@ -54,6 +54,14 @@ public interface DatabaseRepository {
     @GET("/pls/apex/ale_rj11/bibliotecauth/prestamos")
     Call<PrestamoResponse> listPrestamo();
 
+
+    @Headers({
+            "Accept: application/vnd.github.v3.full+json",
+            "User-Agent: Retrofit-Sample-App"
+    })
+    @PUT("/pls/apex/ale_rj11/bibliotecauth/prestamos")
+    Call<ResponseBody> updatePrestamo(@Body Prestamo prestamo);
+
 }
 
 

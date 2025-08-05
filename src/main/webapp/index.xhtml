@@ -8,15 +8,54 @@
 <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
     <h:head>
         <title>Biblioteca Digital</title>
+        <style type="index">
+
+            .ui-menubar {
+                background-color: #f8f9fa;
+                border: none;
+                padding: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .ui-menubar .ui-menuitem {
+                margin-right: 1rem;
+
+            }
+
+            .ui-menubar .ui-menuitem-text {
+                font-weight: 500;
+            }
+
+            .right-menu-item {
+                float: right;
+                margin-left: 1rem;
+
+            }
+        </style>
     </h:head>
     <h:body>
+
+
+        <p:menubar styleClass="ui-menubar">
+            <p:menuitem value="Biblioteca Virtual" icon="pi pi-home" action="/librosUsuario?faces-redirect=true" styleClass="ui-button-flat" />
+            <p:menuitem value="Mis Libros" icon="pi pi-book" action="/loginusuario?faces-redirect=true" rendered="" />
+            <p:menuitem value="Administrador" icon="pi pi-sign-in" action="/index?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
+            <p:menuitem value="Acceder" icon="pi pi-sign-in" action="/loginusuario?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
+            <p:menuitem value="Registrarse" icon="pi pi-user-plus" action="/crearusuario?faces-redirect=true" styleClass="ui-button-outlined right-menu-item" />
+            <p:menuitem value="Cerrar Sesión" icon="pi pi-sign-out" action="#{loginBean.logout}" rendered="#{loginBean.usuario != null}" styleClass="ui-button-outlined right-menu-item" />
+        </p:menubar>
+
+
+
         <div class="card crud-demo">
             <h:form id="form">
                 <p:growl id="messages" showDetail="true" />
 
                 <p:toolbar>
                     <p:toolbarGroup>
-                        <p:commandButton value="añadir" icon="pi pi-plus" actionListener="#{LibrosBean.openNew}"
+                        <p:commandButton value="Añadir" icon="pi pi-plus" actionListener="#{LibrosBean.openNew}"
                                          update=":dialogs:manage-libro-content" oncomplete="PF('manageLibroDialog').show()"
                                          styleClass="ui-button-success" style="margin-right: .5rem">
                             <p:resetInput target=":dialogs:manage-libro-content" />
@@ -27,14 +66,6 @@
                             <p:confirm header="Confirmación" message="¿Deseas eliminar los libros seleccionadas?"
                                        icon="pi pi-exclamation-triangle" />
                         </p:commandButton>
-                        <p:commandButton value="Crear Usuario" icon="pi pi-user-plus"
-                                         action="crearusuario?faces-redirect=true"
-                                         styleClass="ui-button custom-blue-button" style="margin-right: .5rem; margin-left: 1rem"
-                                         update="@none" />
-                        <p:commandButton value="Cerrar Sesión" icon="pi pi-sign-out"
-                                         action="login?faces-redirect=true" styleClass="ui-button-secondary"
-                                         style="margin-right: .5rem; margin-left: 1rem" update="@none"
-                                         immediate="true" />
                     </p:toolbarGroup>
                 </p:toolbar>
 
@@ -124,14 +155,14 @@
                                 <p:selectOneRadio id="genero" value="#{LibrosBean.selectedLibro.genero}"
                                                   layout="responsive" columns="2">
                                     <f:selectItem itemLabel="Aventura" itemValue="Aventura" />
-                                    <f:selectItem itemLabel="Ciencia Ficción" itemValue="Ciencia Ficción" />
+                                    <f:selectItem itemLabel="Sci-Fi" itemValue="Ciencia Ficción" />
                                     <f:selectItem itemLabel="Clásico" itemValue="Clásico" />
                                     <f:selectItem itemLabel="Épica" itemValue="Epica" />
                                     <f:selectItem itemLabel="Ficción" itemValue="Ficción" />
                                     <f:selectItem itemLabel="Filosofía" itemValue="Filosofía" />
                                     <f:selectItem itemLabel="Fantasia" itemValue="Fantasia" />
                                     <f:selectItem itemLabel="Novela" itemValue="Novela" />
-                                    <f:selectItem itemLabel="Realismo mágico" itemValue="Realismo Mágico" />
+                                    <f:selectItem itemLabel="Magia" itemValue="Realismo Mágico" />
                                     <f:selectItem itemLabel="Sátira" itemValue="Sátira" />
                                     <f:selectItem itemLabel="Terror" itemValue="Terror" />
                                     <f:selectItem itemLabel="Poesia" itemValue="Poesia" />

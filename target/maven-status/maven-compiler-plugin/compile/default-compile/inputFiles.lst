@@ -1,20 +1,22 @@
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractor.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractorImpl.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LoginBean.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\PrestamoInteractor.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\PrestamoInteractorImpl.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\UserBean.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\UsuarioBean.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\Libro.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\LibrosResponse.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\Prestamo.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\PrestamoResponse.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\Usuario.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\AuthRepository.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseClient.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepository.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepositoryImpl.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\LibrosBean.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\LibrosViewModel.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\PrestamoBean.java
-C:\proyectos\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\PrestamoViewModel.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\UsuariosResponse.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepositoryImpl.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\AuthRepositoryApi.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseRepository.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\PrestamoInteractor.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\LibrosViewModel.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\DatabaseClient.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractor.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\repository\AuthRepository.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\LibrosResponse.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\Prestamo.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\Usuario.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LoginBean.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\PrestamoResponse.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\PrestamoInteractorImpl.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\UserBean.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\UsuarioBean.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\model\Libro.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\PrestamoBean.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\controller\LibrosInteractorImpl.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\PrestamoViewModel.java
+C:\proyectos\Sistema de Biblioteca\Sistema_de_Biblioteca\src\main\java\biblioteca\virtual\hn\sistema_biblioteca\view\LibrosBean.java
